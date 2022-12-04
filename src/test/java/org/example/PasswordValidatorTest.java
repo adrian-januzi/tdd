@@ -22,7 +22,7 @@ public class PasswordValidatorTest {
         PasswordValidator passwordValidator = new PasswordValidator();
 
         //when
-        assertTrue(passwordValidator.passwordIsValid("Password1"));
+        assertTrue(passwordValidator.passwordIsValid("Password1_"));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class PasswordValidatorTest {
         // this
         PasswordValidator passwordValidator = new PasswordValidator();
 
-        assertTrue(passwordValidator.passwordIsValid("Password1"));
+        assertTrue(passwordValidator.passwordIsValid("Password1@"));
     }
 
 
@@ -63,7 +63,7 @@ public class PasswordValidatorTest {
     public void passwordContainsAtLeastOneLowerCaseLetter() {
         PasswordValidator passwordValidator = new PasswordValidator();
 
-        assertTrue(passwordValidator.passwordIsValid("Password1"));
+        assertTrue(passwordValidator.passwordIsValid("Password1@"));
     }
 
 
@@ -79,7 +79,7 @@ public class PasswordValidatorTest {
     public void passwordContainsAtLeastOneUpperCaseLetter() {
         PasswordValidator passwordValidator = new PasswordValidator();
 
-        assertTrue(passwordValidator.passwordIsValid("Password1"));
+        assertTrue(passwordValidator.passwordIsValid("Password1@"));
     }
 
 
@@ -88,5 +88,29 @@ public class PasswordValidatorTest {
         PasswordValidator passwordValidator = new PasswordValidator();
 
         assertFalse(passwordValidator.passwordIsValid("password1"));
+    }
+
+
+    @Test
+    public void passwordContainsAtLeastOneSpecialChar() {
+        PasswordValidator passwordValidator = new PasswordValidator();
+
+        assertTrue(passwordValidator.passwordIsValid("Password1@"));
+    }
+
+
+    @Test
+    public void passwordContainsNoSpecialChar() {
+        PasswordValidator passwordValidator = new PasswordValidator();
+
+        assertFalse(passwordValidator.passwordIsValid("Password1"));
+    }
+
+
+    @Test
+    public void passwordContainsNonPermittedSpecialChar() {
+        PasswordValidator passwordValidator = new PasswordValidator();
+
+        assertFalse(passwordValidator.passwordIsValid("Password1!"));
     }
 }

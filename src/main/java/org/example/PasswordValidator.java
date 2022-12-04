@@ -22,6 +22,10 @@ public class PasswordValidator {
       return false;
     }
 
+    if (!checkPasswordContainsSpecialChar(password)) {
+      return false;
+    }
+
     return true;
   }
 
@@ -47,9 +51,9 @@ public class PasswordValidator {
   private boolean checkPasswordContainsLowerCase(String password) {
     for (int i = 0; i < password.length(); i++) {
 
-     if (Character.isLowerCase(password.charAt(i))) {
-       return true;
-     }
+      if (Character.isLowerCase(password.charAt(i))) {
+        return true;
+      }
     }
 
     return false;
@@ -62,6 +66,15 @@ public class PasswordValidator {
       if (Character.isUpperCase(password.charAt(i))) {
         return true;
       }
+    }
+
+    return false;
+  }
+
+
+  private boolean checkPasswordContainsSpecialChar(String password) {
+    if (password.matches(".*[_$@#+-].*")) {
+      return true;
     }
 
     return false;
