@@ -8,10 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class PasswordValidatorTest {
     /*
-     * - Password Validator. 
-     * - Write a function that takes a password as a string  and returns true if the password meets certain criteria.
-     *  - The password needs to have more than 8 characters
-     *  - At least 1 number
+     * Password Validator.
+        * The password needs to have more than 8 characters
+        * At least 1 number
+        * At least 1 uppercase letter
+        * at least 1 lowercase letter
+        * at least 1 of the following special characters: _$@#+-
      */
 
     @Test
@@ -58,11 +60,17 @@ public class PasswordValidatorTest {
 
 
     @Test
-    public void something(){
-        //this
+    public void passwordContainsAtLeastOneLowerCaseLetter() {
         PasswordValidator passwordValidator = new PasswordValidator();
 
-        //when
-        assertFalse(passwordValidator.passwordIsValid("Passworda"));
+        assertTrue(passwordValidator.passwordIsValid("Password1"));
+    }
+
+
+    @Test
+    public void passwordContainsNoLowerCaseLetter() {
+        PasswordValidator passwordValidator = new PasswordValidator();
+
+        assertFalse(passwordValidator.passwordIsValid("PASSWORD1"));
     }
 }

@@ -14,6 +14,10 @@ public class PasswordValidator {
       return false;
     }
 
+    if (!checkPasswordContainsLowercase(password)) {
+      return false;
+    }
+
     return true;
   }
 
@@ -33,5 +37,17 @@ public class PasswordValidator {
     }
 
     return true;
+  }
+
+
+  private boolean checkPasswordContainsLowercase(String password) {
+    for (int i = 0; i < password.length(); i++) {
+
+     if (Character.isLowerCase(password.charAt(i))) {
+       return true;
+     }
+    }
+
+    return false;
   }
 }
