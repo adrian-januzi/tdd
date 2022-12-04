@@ -14,7 +14,11 @@ public class PasswordValidator {
       return false;
     }
 
-    if (!checkPasswordContainsLowercase(password)) {
+    if (!checkPasswordContainsLowerCase(password)) {
+      return false;
+    }
+
+    if (!checkPasswordContainsUpperCase(password)) {
       return false;
     }
 
@@ -40,12 +44,24 @@ public class PasswordValidator {
   }
 
 
-  private boolean checkPasswordContainsLowercase(String password) {
+  private boolean checkPasswordContainsLowerCase(String password) {
     for (int i = 0; i < password.length(); i++) {
 
      if (Character.isLowerCase(password.charAt(i))) {
        return true;
      }
+    }
+
+    return false;
+  }
+
+
+  private boolean checkPasswordContainsUpperCase(String password) {
+    for (int i = 0; i < password.length(); i++) {
+
+      if (Character.isUpperCase(password.charAt(i))) {
+        return true;
+      }
     }
 
     return false;

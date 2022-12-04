@@ -9,15 +9,15 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class PasswordValidatorTest {
     /*
      * Password Validator.
-        * The password needs to have more than 8 characters
-        * At least 1 number
-        * At least 1 uppercase letter
-        * at least 1 lowercase letter
-        * at least 1 of the following special characters: _$@#+-
+     * The password needs to have more than 8 characters
+     * At least 1 number
+     * At least 1 uppercase letter
+     * at least 1 lowercase letter
+     * at least 1 of the following special characters: _$@#+-
      */
 
     @Test
-    public void firstTest(){
+    public void firstTest() {
         //this
         PasswordValidator passwordValidator = new PasswordValidator();
 
@@ -33,7 +33,7 @@ public class PasswordValidatorTest {
         assertFalse(passwordValidator.passwordIsValid("Passwor"));
     }
 
-    @Test 
+    @Test
     public void passwordLengthEqualsEight() {
         //this
         PasswordValidator passwordValidator = new PasswordValidator();
@@ -46,7 +46,7 @@ public class PasswordValidatorTest {
         // this
         PasswordValidator passwordValidator = new PasswordValidator();
 
-        assertTrue(passwordValidator.passwordIsValid("password1"));
+        assertTrue(passwordValidator.passwordIsValid("Password1"));
     }
 
 
@@ -72,5 +72,21 @@ public class PasswordValidatorTest {
         PasswordValidator passwordValidator = new PasswordValidator();
 
         assertFalse(passwordValidator.passwordIsValid("PASSWORD1"));
+    }
+
+
+    @Test
+    public void passwordContainsAtLeastOneUpperCaseLetter() {
+        PasswordValidator passwordValidator = new PasswordValidator();
+
+        assertTrue(passwordValidator.passwordIsValid("Password1"));
+    }
+
+
+    @Test
+    public void passwordContainsNoUpperCaseLetter() {
+        PasswordValidator passwordValidator = new PasswordValidator();
+
+        assertFalse(passwordValidator.passwordIsValid("password1"));
     }
 }
